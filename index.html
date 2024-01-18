@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="flags-container">
+        <div class="flag-card" onclick="showCountryInfo('Zimbabue')"><img src="R.jpg" alt="Zimbabue"></div>
+        <div class="flag-card" onclick="showCountryInfo('Åland Islands')"><img src="AL.png" alt="Åland Islands"></div>
+        <div class="flag-card" onclick="showCountryInfo('Albania')"><img src="A.png" alt="Albania"></div>
+        <div class="flag-card" onclick="showCountryInfo('Angola')"><img src="Angola.png" alt="Angola"></div>
+        <div class="flag-card" onclick="showCountryInfo('Antarctica')"><img src="Antarctica.png" alt="Antarctica"></div>
+        <div class="flag-card" onclick="showCountryInfo('Guatemala')"><img src="Guatemala.png" alt="Antarctica"></div>
+    </div>
+
+    <div id="info-container">
+        <div id="country-info">
+            <h2 id="country-name"></h2>
+            <p id="country-description"></p>
+            <p id="capital"></p>
+            <p id="population"></p>
+            <p id="numericCode"></p>
+        </div>
+    </div>
+
+    <script>
+        function showCountryInfo(countryCode) {
+            const countryInfo = getCountryInfo(countryCode);
+
+            document.getElementById('country-name').textContent = countryInfo.name;
+            document.getElementById('country-description').textContent = countryInfo.description;
+            document.getElementById('capital').textContent= countryInfo.capital;
+            document.getElementById('population').textContent=countryInfo.population;
+            document.getElementById('numericCode').textContent=countryInfo.numericCode;
+
+            document.getElementById('info-container').style.display = 'block';
+        }
+
+        function getCountryInfo(countryCode) {
+            switch (countryCode) {
+                case 'Zimbabue':
+                    return { name: 'Zimbabue',  capital: 'capital: Kabul' ,population: 'population: 40218234',numericCode:'numericCode: 021' };
+                case 'Åland Islands':
+                    return { name: 'Åland Islands', capital: 'capital: Mariehamn' ,population:'population: 28875',numericCode: 'numericCode: 221'};
+                case 'Albania':
+                    return { name: 'Albania', capital:'capital: Tirana',population: 'population: 2837743',numericCode: 'numericCode: 123' };
+                    case 'Angola':
+                        return {name: 'Angola',capital: 'capital: Luanda', population:'population: 32866268',numericCode: 'numericCode: 024'};
+                        case 'Antarctica':
+                            return {name: 'Antarctica',capital: 'Antarctica does not have a capital',population:'no avialable data',numericCode:'010'};
+                            case 'Guatemala':
+                                return {name: 'Guatemala',capital:'capital: Guatemala City',population:'population:  16858333',numericCode:'numericode: 320'};
+                default:
+                    return { name: 'Unknown Country', description: 'No information available for this country.' };
+            }
+        }
+    </script>
+
+</body>
+</html>
